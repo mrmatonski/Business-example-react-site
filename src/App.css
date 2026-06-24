@@ -550,6 +550,17 @@ input[type='range'] {
   padding: 14px 18px;
 }
 
+.submission-message {
+  margin: 2px 0 0;
+  border: 1px solid rgba(126, 226, 168, 0.34);
+  border-radius: 8px;
+  background: rgba(126, 226, 168, 0.12);
+  color: #d9ffe6;
+  font-weight: 800;
+  padding: 12px 14px;
+  animation: riseIn 320ms ease both;
+}
+
 .site-footer {
   display: flex;
   justify-content: center;

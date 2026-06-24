@@ -57,6 +57,7 @@ function App() {
   const [hasWebsite, setHasWebsite] = useState('yes')
   const [monthlyRevenue, setMonthlyRevenue] = useState(25000)
   const [employees, setEmployees] = useState(8)
+  const [proposalSubmitted, setProposalSubmitted] = useState(false)
 
   const projectEstimate = useMemo(() => {
     const featureCost = { starter: 1200, growth: 3200, ecommerce: 5600 }
@@ -102,6 +103,11 @@ function App() {
       : monthlyRevenue > 15000
         ? 'Strong foundation fit'
         : 'Launch-stage fit'
+
+  function handleProposalSubmit(event) {
+    event.preventDefault()
+    setProposalSubmitted(true)
+  }
 
   return (
     <main>
@@ -362,11 +368,16 @@ return revenue.grow(leads)`}</code>
           <p className="eyebrow">Contact</p>
           <h2>Ready to turn your website into a sales asset?</h2>
         </div>
-        <form>
+        <form onSubmit={handleProposalSubmit}>
           <input aria-label="Name" placeholder="Name" type="text" />
           <input aria-label="Email" placeholder="Email" type="email" />
           <textarea aria-label="Project details" placeholder="Tell us about your project" />
-          <button type="button">Request a proposal</button>
+          <button type="submit">Request a proposal</button>
+          {proposalSubmitted && (
+            <p className="submission-message" role="status">
+              Thank you for your submission.
+            </p>
+          )}
         </form>
       </section>
 
